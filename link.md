@@ -1,0 +1,1 @@
+Deployment link : [link](https://bead-ochre.vercel.app/)
