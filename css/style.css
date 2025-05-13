@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+nav {
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow-x: hidden; /* Add this line */
+}
+
+/* Add these new rules */
+#mobile-menu {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        width: 100%;
+        max-width: 100%;
+    }
+}

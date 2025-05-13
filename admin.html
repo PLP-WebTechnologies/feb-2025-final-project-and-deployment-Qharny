@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Beads by Korngo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js';
+        import { getAuth } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js';
+        import { getFirestore } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js';
+        import { getStorage } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-storage.js';
+    </script>
+    
+    <!-- Custom JS -->
+    <script src="./js/admin.js" type="module" defer></script>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-8">Product Management</h1>
+        
+        <!-- Add Product Form -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-xl font-bold mb-4">Add New Product</h2>
+            <form id="product-form" class="space-y-4 max-w-xl mx-auto p-6">
+                <div>
+                    <label class="block text-gray-700 mb-2">Product Name</label>
+                    <input type="text" id="product-name" required
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-purple-500">
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2">Price (₵)</label>
+                    <input type="number" id="product-price" step="0.01" required
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-purple-500">
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2">Description</label>
+                    <textarea id="product-description" required
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-purple-500"></textarea>
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2">Category</label>
+                    <select id="product-category" required
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-purple-500">
+                        <option value="Crystal Beads">Crystal Beads</option>
+                        <option value="Wooden Beads">Wooden Beads</option>
+                        <option value="Glass Beads">Glass Beads</option>
+                        <option value="Pearl Beads">Pearl Beads</option>
+                        <option value="sand beads">sand beads</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2">Stock</label>
+                    <input type="number" id="product-stock" required
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-purple-500">
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2">Product Image</label>
+                    <input type="file" id="product-image" accept="image/*" required
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-purple-500">
+                    <img id="image-preview" class="hidden mt-2 max-w-xs rounded-lg">
+                </div>
+                <div id="loading-indicator" class="hidden">
+                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"></div>
+                </div>
+                <button type="submit"
+                    class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700">
+                    Add Product
+                </button>
+            </form>
+        </div>
+
+        <!-- Product List -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-bold mb-4">Current Products</h2>
+            <div id="product-list" class="mt-8 space-y-4">
+                <!-- Products will be listed here -->
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
